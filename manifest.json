@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "YouTube MrBeastify",
+    "name": "MrBeastify",
     "version": "1.3",
     "icons": {
         "16": "icons/icon-16.png",
@@ -11,16 +11,21 @@
     },
     "description": "Modify YouTube thumbnails to include MrBeast",
     "permissions": [
-        "tabs",
+        "storage",
         "https://www.youtube.com/*",
         "https://www.twitch.tv/*",
         "https://www.pornhub.com/*"
     ],
+    
     "content_scripts": [{
         "matches": ["https://www.youtube.com/*", "https://www.twitch.tv/*", "https://www.pornhub.com/*"],
         "js": ["mrbeastify.js"],
         "run_at": "document_idle"
     }],
+    "options_page": "options.html",
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
     "web_accessible_resources": [
         "images/*.png"
     ]
