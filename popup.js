@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Load the saved settings when the popup is opened
 	chrome.storage.sync.get(["isOnSwitch", "MrBeastifyOptions", "ChaosLvl", "MaxOverlayQueue"], (settings) => {
 		isOnSwitch.checked = settings.isOnSwitch !== undefined ? settings.isOnSwitch : true;
-		MrBeastifyOptions.value = settings.MrBeastifyOptions !== undefined ? settings.MrBeastifyOptions : 0;
-		ChaosLvl.value = settings.ChaosLvl !== undefined ? settings.ChaosLvl : 0;
+		MrBeastifyOptions.value = settings.MrBeastifyOptions !== undefined ? settings.MrBeastifyOptions : "0";
+		ChaosLvl.value = settings.ChaosLvl !== undefined ? settings.ChaosLvl : "0";
 		MaxOverlayQueue.value = settings.MaxOverlayQueue !== undefined ? settings.MaxOverlayQueue : 5;
 	});
 
