@@ -37,6 +37,7 @@ function applyOverlay(thumbnailElement, overlayImageUrl, flip, settings) {
 }
 
 function getElementQuery(settings) {
+	const url = location.href;
 	let elementQuery = null;
 	if (url.includes("youtube")) {
 		elementQuery =
@@ -52,7 +53,7 @@ function getElementQuery(settings) {
 function getThumbnailElements(settings) {
 	const url = location.href;
 
-	
+	elementQuery = getElementQuery(settings)
 
 	if (elementQuery !== null && settings.MrBeastifyOptions !== "1") {
 		return document.querySelectorAll(elementQuery);
