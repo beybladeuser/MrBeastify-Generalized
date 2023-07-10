@@ -21,7 +21,7 @@
         "persistent": false
     },
     "content_scripts": [{
-        "matches": ["https://www.youtube.com/*", "https://www.twitch.tv/*", "https://www.pornhub.com/*"],
+        "matches": ["https://*/*"],
         "js": ["mrbeastify.js"],
         "run_at": "document_idle"
     }],
