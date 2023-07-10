@@ -37,6 +37,7 @@ function applyOverlay(thumbnailElement, overlayImageUrl, flip, settings) {
 }
 
 function getElementQuery(settings) {
+	//https://drafts.csswg.org/selectors/
 	const url = location.href;
 	let elementQuery = null;
 	if (url.includes("youtube")) {
