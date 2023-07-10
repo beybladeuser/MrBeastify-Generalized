@@ -11,10 +11,13 @@
     },
     "description": "Modify YouTube thumbnails to include MrBeast",
     "permissions": [
-        "https://www.youtube.com/*"
+        "tabs",
+        "https://www.youtube.com/*",
+        "https://www.twitch.tv/*",
+        "https://www.pornhub.com/*"
     ],
     "content_scripts": [{
-        "matches": ["https://www.youtube.com/*"],
+        "matches": ["https://www.youtube.com/*", "https://www.twitch.tv/*", "https://www.pornhub.com/*"],
         "js": ["mrbeastify.js"],
         "run_at": "document_idle"
     }],
