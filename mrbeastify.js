@@ -4,39 +4,18 @@ const images = [];
 // Apply the overlay
 function applyOverlay(thumbnailElement, overlayImageUrl, flip) {
 	// Create a new img element for the overlay
-	let overlayImage = document.createElement("img");
-	let overlay;
-	if (location.href.includes("youtube")) {
-		overlayImage.src = overlayImageUrl;
-		overlayImage.style.position = "absolute";
-		overlayImage.style.top = "0";
-		overlayImage.style.left = "0";
-		overlayImage.style.width = "100%";
-		overlayImage.style.height = "100%";
+	const overlayImage = document.createElement("img");
 
-		overlay = overlayImage;
-	}
-	
+	overlayImage.src = overlayImageUrl;
+	overlayImage.id = "MrBeast"
+	overlayImage.style.position = "absolute";
+	overlayImage.style.top = "0";
+	overlayImage.style.left = "0";
+	overlayImage.style.width = "100%";
+	overlayImage.style.height = "100%";
+
 	if (location.href.includes("twitch")) {
-		overlayImage.src = overlayImageUrl;
-		overlayImage.style.position = "absolute";
-		overlayImage.style.top = "0";
-		overlayImage.style.left = "0";
-		overlayImage.style.width = "100%";
-		overlayImage.style.height = "100%";
-
-		overlay = overlayImage;
-
-		/* overlay = overlayImage;
-		const overlayDiv = document.createElement("div");
-		overlayDiv.className = "ScAspectRatio-sc-18km980-1 hTTohL tw-aspect";
-		const overlayDivChild = document.createElement("div");
-		overlayDivChild.className = "ScAspectSpacer-sc-18km980-0 ftHEOL";
-		overlayDiv.appendChild(overlayDivChild);
-		overlayImage.className = "tw-image";
-		overlayImage.src = overlayImageUrl;
-		overlay = overlayDiv */
-
+		thumbnailElement.previousElementSibling.style.position = "absolute";
 	}
 
 	overlayImage.style.zIndex = "0"; // Ensure overlay is on top
@@ -48,23 +27,25 @@ function applyOverlay(thumbnailElement, overlayImageUrl, flip) {
 	// Style the thumbnailElement to handle absolute positioning
 	thumbnailElement.style.position = "relative";
 	// Append the overlay to the parent of the thumbnail
-	thumbnailElement.parentElement.appendChild(overlay);
+	thumbnailElement.parentElement.appendChild(overlayImage);
 }
 
 function getThumbnailElements() {
 	const url = location.href;
 
 	let thumbnailElements = document.querySelectorAll("img");
+	let elementQuery = null;
 	if (url.includes("youtube")) {
 		elementQuery =
 			"ytd-thumbnail:not(.ytd-video-preview, .ytd-rich-grid-slim-media) a > yt-image > img.yt-core-image:only-child:not(.yt-core-attributed-string__image-element)";
-		thumbnailElements =	document.querySelectorAll(elementQuery);
 	} else if (url.includes("twitch")) {
 		//elementQuery = "article > div.tw-hover-accent-effect > div > a > div > div.tw-aspect > img:nth-child(1)";
 		elementQuery = "article > div.tw-hover-accent-effect > div > a > div > div.tw-aspect > img:only-of-type";
-		thumbnailElements = document.querySelectorAll(elementQuery)
 	} else if (url.includes("pornhub")) {
-
+		elementQuery = ".js-videoThumb:not(.js-menuSwap):only-of-type";
+	}
+	if (elementQuery !== null) {
+		thumbnailElements = document.querySelectorAll(elementQuery);
 	}
 	return thumbnailElements;
 }
