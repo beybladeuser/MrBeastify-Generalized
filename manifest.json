@@ -16,7 +16,10 @@
         "https://www.twitch.tv/*",
         "https://www.pornhub.com/*"
     ],
-    
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
     "content_scripts": [{
         "matches": ["https://www.youtube.com/*", "https://www.twitch.tv/*", "https://www.pornhub.com/*"],
         "js": ["mrbeastify.js"],
