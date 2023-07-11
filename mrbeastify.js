@@ -79,7 +79,7 @@ function applyOverlayToThumbnails() {
 	//Asks background for settings 
 	chrome.runtime.sendMessage({ action: "getSettings" }, function (newSettings) {
 		//Removes all MrBeasts and exits early
-		if (!newSettings.isOnSwitch) {
+		if (!newSettings?.isOnSwitch) {
 			removeMrBeasts()
 			return;
 		}
