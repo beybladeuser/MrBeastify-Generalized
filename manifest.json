@@ -9,7 +9,7 @@
         "64": "icons/icon-64.png",
         "96": "icons/icon-96.png"
     },
-    "description": "Modify YouTube thumbnails to include MrBeast",
+    "description": "Modify thumbnails to include MrBeast",
     "permissions": [
         "storage",
         "https://www.youtube.com/*",
