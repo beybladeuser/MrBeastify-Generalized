@@ -10,23 +10,28 @@
         "96": "icons/icon-96.png"
     },
     "description": "Modify thumbnails to include MrBeast",
+    "permissions": [
+        "storage"
+    ],
     "host_permissions": [
-        "storage",
         "https://www.youtube.com/*",
         "https://www.twitch.tv/*",
         "https://www.pornhub.com/*"
     ],
     "background": {
-        "scripts": ["background.js"],
-        "persistent": false
+        "service_worker": "background.js",
+        "type": "module"
     },
     "content_scripts": [{
         "matches": ["https://*/*"],
         "js": ["mrbeastify.js"],
         "run_at": "document_idle"
     }],
-    "options_page": "options.html",
-    "browser_action": {
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
+    "action": {
         "default_popup": "popup.html"
     },
     "web_accessible_resources": [{
