@@ -1,5 +1,5 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "MrBeastify",
     "version": "1.3",
     "icons": {
@@ -11,36 +11,25 @@
     },
     "description": "Modify thumbnails to include MrBeast",
     "permissions": [
-        "storage"
-    ],
-    "host_permissions": [
+        "storage",
         "https://www.youtube.com/*",
         "https://www.twitch.tv/*",
         "https://www.pornhub.com/*"
     ],
     "background": {
-        "service_worker": "background.js",
-        "type": "module"
+        "scripts": ["background.js"],
+        "persistent": false
     },
     "content_scripts": [{
         "matches": ["https://*/*"],
         "js": ["mrbeastify.js"],
         "run_at": "document_idle"
     }],
-    "options_ui": {
-        "page": "options.html",
-        "open_in_tab": true
-    },
-    "action": {
+    "options_page": "options.html",
+    "browser_action": {
         "default_popup": "popup.html"
     },
-    "web_accessible_resources": [{
-        "resources": [
-            "images/*.png"
-        ],
-        "matches": [
-            "*://*/*"
-        ]
-    }]
-
+    "web_accessible_resources": [
+        "images/*.png"
+    ]
 }
