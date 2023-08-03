@@ -42,7 +42,7 @@ function getElementQuery(settings) {
 	let elementQuery = null;
 	if (url.includes("youtube")) {
 		elementQuery =
-			"ytd-thumbnail:not(.ytd-video-preview, .ytd-rich-grid-slim-media) a > yt-image > img.yt-core-image:only-child:not(.yt-core-attributed-string__image-element)";
+			settings.ChaosLvl !== "0" ? "ytd-thumbnail:not(.ytd-video-preview, .ytd-rich-grid-slim-media) a > yt-image > img.yt-core-image:not(.yt-core-attributed-string__image-element)" : "ytd-thumbnail:not(.ytd-video-preview, .ytd-rich-grid-slim-media) a > yt-image > img.yt-core-image:only-of-type:not(.yt-core-attributed-string__image-element)";
 	} else if (url.includes("twitch")) {
 		elementQuery = settings.ChaosLvl !== "0" ? "article > div.tw-hover-accent-effect > div > a > div > div.tw-aspect > img:nth-child(2)" : "article > div.tw-hover-accent-effect > div > a > div > div.tw-aspect > img:only-of-type";
 	} else if (url.includes("pornhub")) {
